@@ -1,0 +1,26 @@
+name: Python package # Spécifie le nom du workflow qui doit apparaître sur 
+                     # la page "Actions".
+on: [push] # Spécifie la condition de déclenchement du workflow. Dans ce 
+           # cas, il est déclenché par un "push" dans le répertoire.
+jobs: # Regroupe tout les tâches du workflow à exécuter.
+  build: # Spécifie le nom de cette tâche.
+
+    runs-on: ubuntu-latest # Définie le système d'exploitation dans lequel
+                           # la tâche est exécutée.
+    steps: # Regroupe tout les étapes de cette tâche (build).
+      - uses: actions/checkout@v3 # Spécifie que l'action "checkout@v3" 
+                                  # est exécutée dans cette étape. Celle-ci
+                                  # permet l'accès au repo dans le workflow.
+      - name: Setup Python # Spécifie le nom de l'étape.
+        uses: actions/setup-python@v4 # Installe Python sur le système 
+                                      # exécutant la tâche.
+        with: # Spécifie les paramètres de l'action ci-dessus
+          python-version: "3.9" # Spécifie la version de Python installée.
+      - name: Install package # Spécifie le nom de l'étape.
+        run: pip install -r requirements.txt # Exécute une commande qui 
+                                             # installe tout les packages 
+                                             # situés dans requirment.txt 
+                                             # avec les versions associées.
+      - name: Run tests # Spécifie le nom de l'étape.
+        run: python manage.py test # Exécute une commande qui exécute tout 
+                                   # les tests du projet
