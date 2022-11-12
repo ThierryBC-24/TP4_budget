@@ -22,5 +22,5 @@ jobs: # Regroupe tout les tâches du workflow à exécuter.
                                              # situés dans requirment.txt 
                                              # avec les versions associées.
       - name: Run tests # Spécifie le nom de l'étape.
-        run: python myscripy.py # Exécute une commande qui exécute tout 
+        run: python myscript.py # Exécute une commande qui exécute tout 
                                    # les tests du projet
