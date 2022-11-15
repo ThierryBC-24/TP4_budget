@@ -9,8 +9,8 @@ jobs: # Regroupe tout les tâches du workflow à exécuter.
                            # la tâche est exécutée.
     steps: # Regroupe tout les étapes de cette tâche (build).
       - uses: actions/checkout@v3 # Spécifie que l'action "checkout@v3" 
-                                  # est exécutée dans cette étape. Celle-ci
-                                  # permet l'accès au repo dans le workflow.
+        with:                          # est exécutée dans cette étape. Celle-ci
+          fetch-depth: 0                        # permet l'accès au repo dans le workflow.
       - name: Setup Python # Spécifie le nom de l'étape.
         uses: actions/setup-python@v4 # Installe Python sur le système 
                                       # exécutant la tâche.
